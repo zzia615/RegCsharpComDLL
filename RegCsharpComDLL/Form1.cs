@@ -45,8 +45,18 @@ namespace RegCsharpComDLL
             startInfo.UseShellExecute = false;
             Process process = Process.Start(startInfo);
             process.WaitForExit();
+            if (textBox1.Text.Length > 0)
+            {
+                textBox1.Text += "\r\n";
+                textBox1.Text += "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+                textBox1.Text += "\r\n";
+            }
             textBox1.Text += process.StandardOutput.ReadToEnd();
             textBox1.Text += process.StandardError.ReadToEnd();
+
+            textBox1.Focus();
+            this.textBox1.Select(this.textBox1.TextLength, 0);//光标定位到文本最后
+            this.textBox1.ScrollToCaret();//滚动到光标处
         }
         string GetPath()
         {
