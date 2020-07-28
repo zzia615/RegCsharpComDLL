@@ -90,7 +90,7 @@ namespace RegCsharpComDLL
             }
 
             string s_regasm = Path.Combine(path, "regasm.exe");
-            RunCmd(s_regasm, "/codebase " + textBox2.Text);
+            RunCmd(s_regasm, "/codebase " + "\""+textBox2.Text + "\"");
         }
 
 
@@ -104,7 +104,7 @@ namespace RegCsharpComDLL
             }
 
             string s_regasm = Path.Combine(path, "regasm.exe");
-            RunCmd(s_regasm, "/codebase " + textBox2.Text+" /u");
+            RunCmd(s_regasm, "/codebase " +"\"" + textBox2.Text + "\"" + " /u");
         }
     }
 }
